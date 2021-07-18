@@ -1,0 +1,32 @@
+<h2>Autenticação</h2>
+<p>Informe suas credencias para cadastrar novos CEPs</p>
+
+<div class="card-container">
+    <div>
+        <label for="zipCodeValue">Número do CEP</label>
+        <input class="default-input" [(ngModel)]="model.value" id="zipCodeValue" name="zipCodeValue" type="number" placeholder="123123">
+    </div>
+
+    <div>
+        <label for="zipCodeCity">Nome da Cidade</label>
+        <input class="default-input" [(ngModel)]="model.city" id="zipCodeCity" name="zipCodeCity" type="text" placeholder="Maringá">
+    </div>
+
+    <div>
+        <label for="zipCodeState">Sigla do Estado</label>
+        <input class="default-input" [(ngModel)]="model.state" id="zipCodeState" name="zipCodeState" type="text" placeholder="PR">
+    </div>
+
+    <button class="default-button" (click)="addZipCode()">OK!</button>
+</div>
+
+<div class="card-container" *ngIf="isSubmit">
+    <span *ngIf="submitError">{{ submitError }}</span>
+</div>
+
+<div class="card-container" *ngIf="isLoading">
+    <span *ngIf="loadingError">{{ loadingError }}</span>
+    <div *ngIf="!loadingError">
+        <p style="margin-top: 5px;" *ngFor="let zipCodeObject of all">{{ zipCodeObject.value }} - {{ zipCodeObject.city }}/{{ zipCodeObject.state}}</p>
+    </div>
+</div>

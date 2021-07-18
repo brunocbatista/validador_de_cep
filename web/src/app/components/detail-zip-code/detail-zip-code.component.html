@@ -1,0 +1,14 @@
+<h2>Busca</h2>
+<p>Busque por um CEP e verfique se o mesmo é válido.</p>
+
+<div class="card-container">
+    <input class="default-input" [(ngModel)]="zipCodeValue" id="zipCodeValue" name="zipCodeValue" type="number" placeholder="123123">
+    <button class="default-button" (click)="detailZipCode()">OK!</button>
+</div>
+
+<div class="card-container" *ngIf="zipCodeIsLoading">
+    <span *ngIf="zipCodeError">{{ zipCodeError }}</span>
+    <span *ngIf="!zipCodeError">
+        {{ zipCodeObject.value }} - {{ zipCodeObject.city }}/{{ zipCodeObject.state}}
+    </span>
+</div>

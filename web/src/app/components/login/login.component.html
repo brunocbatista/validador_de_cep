@@ -1,0 +1,20 @@
+<h2>Autenticação</h2>
+<p>Informe suas credencias para cadastrar novos CEPs ou <a [routerLink]="['/register']">registre-se</a></p>
+
+<div class="card-container">
+    <div>
+        <label for="userEmail">E-mail</label>
+        <input class="default-input" [(ngModel)]="model.email" id="userEmail" name="userEmail" type="text" placeholder="bruncbatista@gmail.com">
+    </div>
+
+    <div>
+        <label for="userPassword">Senha</label>
+        <input class="default-input" [(ngModel)]="model.password" id="userPassword" name="userPassword" type="password">
+    </div>
+
+    <button class="default-button" (click)="login()">OK!</button>
+</div>
+
+<div class="card-container" *ngIf="isSubmit">
+    <span *ngIf="submitError">{{ submitError }}</span>
+</div>

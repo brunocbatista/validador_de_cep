@@ -1,0 +1,25 @@
+<h2>Autenticação</h2>
+<p>Informe suas credencias para se registrar ou <a [routerLink]="['/login']">informe suas credencias</a> se já cadastrado</p>
+
+<div class="card-container">
+    <div>
+        <label for="userName">Nome</label>
+        <input class="default-input" [(ngModel)]="model.name" id="userName" name="userName" type="text" placeholder="Bruno">
+    </div>
+
+    <div>
+        <label for="userEmail">E-mail</label>
+        <input class="default-input" [(ngModel)]="model.email" id="userEmail" name="userEmail" type="text" placeholder="bruncbatista@gmail.com">
+    </div>
+
+    <div>
+        <label for="userPassword">Senha</label>
+        <input class="default-input" [(ngModel)]="model.password" id="userPassword" name="userPassword" type="password">
+    </div>
+
+    <button class="default-button" (click)="register()">OK!</button>
+</div>
+
+<div class="card-container" *ngIf="isSubmit">
+    <span *ngIf="submitError">{{ submitError }}</span>
+</div>
