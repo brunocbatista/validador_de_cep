@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Cep;
+use App\Models\ZipCode;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CepFactory extends Factory
+class ZipCodeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Cep::class;
+    protected $model = ZipCode::class;
 
     /**
      * Define the model's default state.

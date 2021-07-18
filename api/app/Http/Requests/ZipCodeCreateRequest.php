@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class CepCreateRequest extends BaseApiRequest
+class ZipCodeCreateRequest extends BaseApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class CepCreateRequest extends BaseApiRequest
     public function rules()
     {
         return [
-            'value' => ['required', 'numeric', 'unique:ceps'],
+            'value' => ['required', 'numeric', 'unique:zip_codes'],
             'city' => ['required'],
             'state' => ['required', 'max:2']
         ];

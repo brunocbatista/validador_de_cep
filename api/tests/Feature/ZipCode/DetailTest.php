@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Feature\Cep;
+namespace Tests\Feature\ZipCode;
 
-use App\Models\Cep;
+use App\Models\ZipCode;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -11,10 +11,12 @@ use Tests\TestCase;
 class DetailTest extends TestCase
 {
     /** @test */
-    public function it_should_be_authenticated()
+    public function it_should_not_be_authenticated()
     {
-        $this->get(route('cep.details', '100000'))
-            ->assertRedirect('/api/login');
+        $zip_code = ZipCode::factory()->create();
+
+        $this->get(route('zip-code.details', $zip_code->value))
+            ->assertSuccessful();
     }
 
     /** @test */
@@ -23,7 +25,7 @@ class DetailTest extends TestCase
         $user = User::factory()->create();
 
         $this->actingAs($user)
-            ->get(route('cep.details', '100000'))
+            ->get(route('zip-code.details', '100000'))
             ->assertForbidden();
     }
 
@@ -31,10 +33,10 @@ class DetailTest extends TestCase
     public function it_should_detail()
     {
         $user = User::factory()->create();
-        $cep = Cep::factory()->create();
+        $zip_code = ZipCode::factory()->create();
 
         $this->actingAs($user)
-            ->get(route('cep.details', $cep->value))
+            ->get(route('zip-code.details', $zip_code->value))
             ->assertSuccessful();
     }
 }

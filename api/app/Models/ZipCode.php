@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class Cep extends Model
+class ZipCode extends Model
 {
     use HasFactory;
 
-    protected $collection = 'ceps';
+    protected $collection = 'zip_codes';
 
     protected $fillable = [
         'value', 'city', 'state'

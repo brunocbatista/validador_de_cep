@@ -4,7 +4,7 @@
 namespace App\Services;
 
 
-class CepValidatorService
+class ZipCodeValidatorService
 {
     public static function validator($value)
     {

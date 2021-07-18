@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Feature\Cep;
+namespace Tests\Feature\ZipCode;
 
-use App\Models\Cep;
+use App\Models\ZipCode;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -13,7 +13,7 @@ class AllTest extends TestCase
     /** @test */
     public function it_should_be_authenticated()
     {
-        $this->post(route('cep.all'))
+        $this->post(route('zip-code.all'))
             ->assertRedirect('/api/login');
     }
 
@@ -22,11 +22,11 @@ class AllTest extends TestCase
     {
         $user = User::factory()->create();
 
-        Cep::factory(10)->create();
+        ZipCode::factory(10)->create();
 
 
         $this->actingAs($user)
-            ->get(route('cep.all'))
+            ->get(route('zip-code.all'))
             ->assertSuccessful();
     }
 }
